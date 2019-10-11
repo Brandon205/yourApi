@@ -50,7 +50,7 @@ app.put('/dogs/:id', function(req, res) {
 app.delete('/dogs/:id', function(req, res) {
     db.dog.destroy({
         where: {
-            id: parseInt(req.params.id);
+            id: parseInt(req.params.id),
         }
     }).then(function(deletedDog) {
         res.redirect('/dogs');
