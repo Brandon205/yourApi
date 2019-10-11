@@ -4,11 +4,6 @@ const db = require('./models');
 const app = express()
 app.use(express.urlencoded({extended: false}));
 
-function logError(error) {
-    console.log('--------------');
-    console.log(error);
-}
-
 app.get('/', function(req, res) {
     res.send("You've reached the home page!");
 });
@@ -18,7 +13,6 @@ app.get('/dogs', function(req, res) {
     .then(function(dogs) {
         res.json(dogs);
     })
-    .catch(logError('Whoopsies'));
 });
 
 app.post('/dogs', function(req, res) {
